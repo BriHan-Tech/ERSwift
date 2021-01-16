@@ -9,7 +9,11 @@ const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "emergency-check-in", component: EmergencyCheckInComponent },
   { path: "check-in", component: CheckInComponent },
-  { path: "queue-position", component: QueuePositionComponent }
+  { path: "queue-position", component: QueuePositionComponent },
+  {
+    path: "doctor",
+    loadChildren: () => import('./doctor/doctor.module').then(m => m.DoctorModule)
+  }
 ];
 
 @NgModule({
