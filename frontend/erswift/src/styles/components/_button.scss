@@ -17,11 +17,11 @@
     }
     
     &:hover {
-        transform: translateY(-3px);
+        transform: translateY(-2px);
         box-shadow: 0 1rem 2rem rgba($color-black,.2);
 
         &::after {
-            transform: scaleX(1.4) scaleY(1.6);
+            transform: scaleX(1.2) scaleY(1.6);
             opacity: 0;
         }
     }
@@ -33,7 +33,7 @@
         box-shadow: 0 .5rem 1rem rgba($color-black,.2);
     }
     
-    &--orange {
+    &--blue {
         background-color: $color-primary;
         color: $color-white;
 
