@@ -38,12 +38,16 @@ export class EmergencyCheckInComponent implements OnInit {
       formData.append('extra_information', this.emergencyCheckInForm.get('extra_information').value)
     
       this.http.post<any>(this.erswiftAPIUrl, formData).subscribe(
-        (res) => console.log(res),
+        (res) => this.storeResult(res),
         (err) => console.log(err)
       )
     } else {
       console.log("Not Valid")
     }
+  }
+
+  storeResult(result:any):void {
+    localStorage.setItem("hospital_area", result.hospital_area)
   }
 
 }
