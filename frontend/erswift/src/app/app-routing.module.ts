@@ -7,7 +7,7 @@ import { QueuePositionComponent } from './queue-position/queue-position.componen
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "emergency-check-in", component: EmergencyCheckInComponent },
-  { path: "queue-position/:id", component: QueuePositionComponent }
+  { path: "queue-position", component: QueuePositionComponent }
 ];
 
 @NgModule({
