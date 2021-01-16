@@ -1,0 +1,29 @@
+<div class="dashboard" *ngIf="hospital_areas">
+    <h1 class="dashboard__header">Dashboard</h1>
+
+    <select [(ngModel)]="areaFilter" class="dashboard__dropdown">
+        <option selected value="">All</option>
+        <option *ngFor="let area of hospital_areas" [ngValue]="area.area">{{ area.area }}</option>
+    </select>
+        
+    <div class="dashboard__list" *ngFor="let area of filtered_areas">
+        <div class="dashboard__list__patients-list" *ngIf="area.priority_patients">
+            <div class="dashboard__list__patients-list__patient" *ngFor="let patient of area.priority_patients">
+                <h3>Name: {{ patient.first_name }} {{ patient.last_name}}</h3>
+                <h4>Date of Birth: {{ patient.date_of_birth }}</h4>
+
+                {{ patient.emer_reasoning }}
+            </div>
+        </div>
+
+        <div class="dashboard__list__patients-list" *ngIf="area.patients">
+            <div class="dashboard__list__patients-list__patient" *ngFor="let patient of area.patients">
+                <h3>Name: {{ patient.first_name }} {{ patient.last_name}}</h3>
+                <h4>Date of Birth: {{ patient.date_of_birth }}</h4>
+
+                {{ patient.emer_reasoning }}
+            </div>
+        </div>
+
+    </div>
+</div>
