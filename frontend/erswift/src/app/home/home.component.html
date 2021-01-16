@@ -10,13 +10,13 @@
         </span>
     </div>
     <div class="home__button-list">
-        <div class="home__button-list__button btn btn--blue" [routerLink]="['/emergency-check-in']">
+        <div *ngIf="!user_id" class="home__button-list__button btn btn--blue" [routerLink]="['/emergency-check-in']">
             Emergency Check-In
         </div>
-        <div class="home__button-list__button btn btn--blue">
+        <div *ngIf="!user_id" class="home__button-list__button btn btn--blue" [routerLink]="['/check-in']">
             Check-In
         </div>
-        <div class="home__button-list__button btn btn--blue" [routerLink]="['/queue-position']">
+        <div *ngIf="user_id" class="home__button-list__button btn btn--blue" [routerLink]="['/queue-position']">
             Queue Position
         </div>
         <div class="home__button-list__button btn btn--blue">
