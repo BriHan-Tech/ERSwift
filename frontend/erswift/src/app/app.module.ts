@@ -10,12 +10,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { EmergencyCheckInComponent } from './emergency-check-in/emergency-check-in.component';
+import { QueuePositionComponent } from './queue-position/queue-position.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    EmergencyCheckInComponent
+    EmergencyCheckInComponent,
+    QueuePositionComponent
   ],
   imports: [
     BrowserModule,
