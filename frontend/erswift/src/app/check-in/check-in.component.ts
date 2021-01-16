@@ -1,3 +1,4 @@
+import { formatCurrency } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -26,6 +27,22 @@ export class CheckInComponent implements OnInit {
       cut_location: [""],
       extra_information: [""]
     })
+
+    this.checkInForm.get('reasoning').valueChanges.subscribe(
+      value => this.setCutValidators(value)
+    );
+  }
+
+  setCutValidators(reason: string): void {
+    const cut_location = this.checkInForm.get("cut_location");
+
+    if (reason == "cut") {
+      cut_location.setValidators(Validators.required);
+    } else {
+      cut_location.clearValidators();
+    }
+
+    cut_location.updateValueAndValidity();
   }
 
   save(): void {
@@ -35,7 +52,8 @@ export class CheckInComponent implements OnInit {
       formData.append('first_name', this.checkInForm.get('first_name').value);
       formData.append('last_name', this.checkInForm.get('last_name').value);
       formData.append('date_of_birth', this.checkInForm.get('date_of_birth').value);
-      formData.append('emer_reasoning', this.checkInForm.get('emer_reasoning').value);
+      formData.append('reasoning', this.checkInForm.get('reasoning').value);
+      formData.append('cut_location', this.checkInForm.get('cut_location').value);
       formData.append('extra_information', this.checkInForm.get('extra_information').value)
     
       this.http.post<any>(this.erswiftAPIUrl, formData).subscribe(
@@ -50,6 +68,7 @@ export class CheckInComponent implements OnInit {
   storeResult(result:any):void {
     localStorage.setItem("hospital_area", result.hospital_area);
     localStorage.setItem("user_id", result.id);
+    localStorage.setItem("triage", "2")
   }
 
 }

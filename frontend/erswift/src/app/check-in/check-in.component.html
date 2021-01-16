@@ -1,1 +1,58 @@
-<p>check-in works!</p>
+<div class="check-in">
+    <h1 class="check-in__title">
+        Check In
+    </h1>
+    <form class="check-in__form" [formGroup]="checkInForm" (ngSubmit)="save()">
+        <div class="check-in__form__section">
+            <label class="check-in__form__section__label">First Name:</label>
+            <input class="check-in__form__section__field"
+                   type="text"
+                   formControlName="first_name">
+        </div>
+        <div class="check-in__form__section">
+            <label class="check-in__form__section__label">Last Name:</label>
+            <input class="check-in__form__section__field"
+                   type="text"
+                   formControlName="last_name">
+        </div>
+        <div class="check-in__form__section">
+            <label class="check-in__form__section__label">Date of Birth</label>
+            <input class="check-in__form__section__field"
+                   type="date"
+                   formControlName="date_of_birth">
+        </div>
+        <div class="check-in__form__section">
+            <label class="check-in__form__section__label">Injury/Symptoms:</label>
+            <select class="check-in__form__section__field" formControlName="reasoning">
+                <option value="sick">Sick</option>
+                <option value="temperature">Temperature</option>
+                <option value="cut">Cut</option>
+                <option value="trauma">Trauma</option>
+                <option value="poisoning">Poisoning</option>
+                <option value="burns">Burns</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="check-in__form__section" *ngIf="checkInForm.get('reasoning').value == 'cut'">
+            <label class="check-in__form__section__label">Location:</label>
+            <select class="check-in__form__section__field" formControlName="cut_location">
+                <option value="head">Head</option>
+                <option value="neck">Neck</option>
+                <option value="torso">Torso</option>
+                <option value="arms">Arms</option>
+                <option value="legs">Legs</option>
+            </select>
+        </div>
+        <div class="check-in__form__section">
+            <label class="check-in__form__section__label">Additional Information:</label>
+            <input class="check-in__form__section__field"
+                   type="text"
+                   formControlName="extra_information">
+        </div>
+
+        <div class="check-in__form__submit-button">
+            <button type="submit" class="btn btn--blue">Submit</button>
+        </div>
+
+    </form>
+</div>
