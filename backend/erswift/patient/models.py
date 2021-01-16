@@ -37,9 +37,9 @@ class PriorityPatient(models.Model):
     def save(self, *args, **kwargs):
 
         if self.emer_reasoning in self.resusciation_area:
-            self.hospital_area = PriorityHospitalArea.objects.get(area="resusciation")
+            self.hospital_area = PriorityHospitalArea.objects.get(area="Resusciation Area")
         else:
-            self.hospital_area = PriorityHospitalArea.objects.get(area="major-wound")
+            self.hospital_area = PriorityHospitalArea.objects.get(area="Major Wound Area")
 
         super().save(*args, **kwargs)
 
@@ -87,9 +87,9 @@ class Patient(models.Model):
     def save(self, *args, **kwargs):
 
         if self.reasoning in self.minor_procedures:
-            self.hospital_area = HospitalArea.objects.get(area="resusciation")
+            self.hospital_area = HospitalArea.objects.get(area="Resusciation Area")
         else:
-            self.hospital_area = HospitalArea.objects.get(area="major-wound")
+            self.hospital_area = HospitalArea.objects.get(area="Major Wound")
 
         super().save(*args, **kwargs)
 

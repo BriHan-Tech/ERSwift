@@ -4,11 +4,11 @@ class PriorityHospitalArea(models.Model):
     
     # CHOICES
     PRIORITY_AREA_OPTIONS = (
-        ("resusciation", "Resusciation Area"),
-        ("major-wound", "Major Wound")
+        ("Resusciation Area", "Resusciation Area"),
+        ("Major Wound Area", "Major Wound Area")
     )
 
-    area = models.CharField(choices=PRIORITY_AREA_OPTIONS, max_length=16)
+    area = models.CharField(choices=PRIORITY_AREA_OPTIONS, max_length=20)
 
 
     def __str__(self):
