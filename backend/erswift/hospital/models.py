@@ -18,12 +18,12 @@ class HospitalArea(models.Model):
     
     # CHOICES 
     AREA_OPTIONS = (
-        ("minor-procedure", "Minor Procedure"),
-        ("consultation", "Consultation"),
-        ("network", "Network")
+        ("Minor Procedure Area", "Minor Procedure Area"),
+        ("Consultation Area", "Consultation Area"),
+        ("Online Area", "Online Area")
     )
 
-    area = models.CharField(choices=AREA_OPTIONS, max_length=16)
+    area = models.CharField(choices=AREA_OPTIONS, max_length=23)
 
     def __str__(self):
         return str(self.area)

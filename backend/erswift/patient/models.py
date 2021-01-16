@@ -63,6 +63,7 @@ class Patient(models.Model):
 
     CUT_LOCATION = (
         ("head", "Head"),
+        ('neck', "Neck"),
         ("torso", "Torso"),
         ("arms", "Arms"),
         ("legs", "Legs")
@@ -76,20 +77,24 @@ class Patient(models.Model):
     current_time = models.DateTimeField(auto_now=True)
     
     reasoning = models.CharField(choices=INJURY_SYMPTOMS, max_length=11)
+    temperature = models.CharField(max_length=4, null=True, blank=True)
     cut_location = models.CharField(choices=CUT_LOCATION, max_length=5, null=True, blank=True)
     extra_information = models.TextField(blank=True, null=True)
 
-    hospital_area = models.ForeignKey(HospitalArea, related_name="patients", on_delete=models.CASCADE)
+    hospital_area = models.ForeignKey(HospitalArea, related_name="patients", on_delete=models.CASCADE, blank=True, null=True)
 
 
-    minor_procedures = ["cut", "poisoning"]
+    minor_procedures = ["cut", "trauma", "burns"]
+    consultation = ["poisoning", "sick", "temperature"]
 
     def save(self, *args, **kwargs):
 
         if self.reasoning in self.minor_procedures:
-            self.hospital_area = HospitalArea.objects.get(area="Resusciation Area")
+            self.hospital_area = HospitalArea.objects.get(area="Minor Procedure Area")
+        elif self.reasoning in self.consultation:
+            self.hospital_area = HospitalArea.objects.get(area="Consultation Area")
         else:
-            self.hospital_area = HospitalArea.objects.get(area="Major Wound")
+            self.hospital_area = HospitalArea.objects.get(area="Online Area")
 
         super().save(*args, **kwargs)
 
