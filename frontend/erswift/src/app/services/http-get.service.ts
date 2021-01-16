@@ -19,6 +19,12 @@ export class HttpGetService {
     )
   }
 
+  getPatientQueue(id:number): Observable<IHospitalArea> {
+    return this.http.get<IHospitalArea>(this.erswiftAPIUrl + "hospital-areas/hospital-areas/" + id + "/").pipe(
+      catchError(this.handleError)
+    )
+  }
+
   private handleError(err: HttpErrorResponse) {
     let errorMessage = "";
     if (err.error instanceof ErrorEvent) {
