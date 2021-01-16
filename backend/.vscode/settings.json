@@ -1,0 +1,10 @@
+{
+    "python.pythonPath": "/home/brihan/.local/share/virtualenvs/backend-sjbUgNoM/bin/python",
+    "python.linting.pylintUseMinimalCheckers": false,
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintArgs": [
+        "--disable=C0111", // missing docstring
+        "--load-plugins",
+        "pylint_django"
+    ],
+}
