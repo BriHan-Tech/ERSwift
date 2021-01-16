@@ -1,0 +1,47 @@
+<div class="emergency-check-in">
+    <h1 class="emergency-check-in__title">
+        Emergency <br /> Check In
+    </h1>
+    <form class="emergency-check-in__form" [formGroup]="emergencyCheckInForm" (ngSubmit)="save()">
+        <div class="emergency-check-in__form__section">
+            <label class="emergency-check-in__form__section__label">First Name:</label>
+            <input class="emergency-check-in__form__section__field"
+                   type="text"
+                   formControlName="first_name">
+        </div>
+        <div class="emergency-check-in__form__section">
+            <label class="emergency-check-in__form__section__label">Last Name:</label>
+            <input class="emergency-check-in__form__section__field"
+                   type="text"
+                   formControlName="last_name">
+        </div>
+        <div class="emergency-check-in__form__section">
+            <label class="emergency-check-in__form__section__label">Date of Birth</label>
+            <input class="emergency-check-in__form__section__field"
+                   type="date"
+                   formControlName="date_of_birth">
+        </div>
+        <div class="emergency-check-in__form__section">
+            <label class="emergency-check-in__form__section__label">Injury/Symptoms:</label>
+            <select class="emergency-check-in__form__section__field" formControlName="emer_reasoning">
+                <option value="breathing">Breathing</option>
+                <option value="fatal-wounds">Fatal Wounds</option>
+                <option value="coma">Coma</option>
+                <option value="shock">Signs of Shock</option>
+                <option value="dehydration">Severe Signs of Dehydration</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="emergency-check-in__form__section">
+            <label class="emergency-check-in__form__section__label">Additional Information:</label>
+            <input class="emergency-check-in__form__section__field"
+                   type="text"
+                   formControlName="extra_information">
+        </div>
+
+        <div class="emergency-check-in__form__submit-button">
+            <button type="submit" class="btn btn--blue">Submit</button>
+        </div>
+
+    </form>
+</div>
