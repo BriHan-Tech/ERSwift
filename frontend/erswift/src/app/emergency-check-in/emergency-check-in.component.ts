@@ -49,6 +49,7 @@ export class EmergencyCheckInComponent implements OnInit {
   storeResult(result:any):void {
     localStorage.setItem("hospital_area", result.hospital_area);
     localStorage.setItem("user_id", result.id);
+    localStorage.setItem("triage", "1")
   }
 
 }
