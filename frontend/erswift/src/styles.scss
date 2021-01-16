@@ -1,2 +1,10 @@
 // Abstracts
-@import "./styles/abstract/variables"
+@import "./styles/abstract/mixins";
+@import "./styles/abstract/variables";
+
+// Base
+@import "./styles/base/base";
+@import "./styles/base/typography";
+
+// Component
+@import "./styles/components/button";
