@@ -25,11 +25,10 @@ export class QueuePositionComponent implements OnInit {
     this.hospital_area_id = +localStorage.getItem("hospital_area");
     this.user_id = localStorage.getItem("user_id");
     this.getQueue(this.hospital_area_id);
-    
   }
 
   getQueue(id:number):void {
-    this.httpGetService.getQueue(id).subscribe(
+    this.httpGetService.getPriorityQueue(id).subscribe(
       hospital_area => {
         this.hospitalArea = hospital_area;
       }

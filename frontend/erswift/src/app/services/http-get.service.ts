@@ -13,7 +13,7 @@ export class HttpGetService {
 
   constructor(private http: HttpClient) { }
 
-  getQueue(id:number): Observable<IHospitalArea> {
+  getPriorityQueue(id:number): Observable<IHospitalArea> {
     return this.http.get<IHospitalArea>(this.erswiftAPIUrl + "hospital-areas/hospital-priority-areas/" + id + "/").pipe(
       catchError(this.handleError)
     )
