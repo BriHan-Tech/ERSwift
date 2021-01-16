@@ -1,12 +1,9 @@
 <div class="queue-position" *ngIf="hospitalArea">
     <div class="queue-position__head">
-        <h1 class="queue-position__head__title">Queue Position for: <br /> The {{ hospitalArea.area }}</h1>
+        <h1 class="queue-position__head__title">Queue Position for: <br />{{ hospitalArea.area }}</h1>
         <h3 class="queue-position__head__sub">You are currently:</h3>
         <h1 class="queue-position__head__number">#{{ queueNumber() }}</h1>
-    </div> 
-    <div class="queue-position__list" *ngIf="hospitalArea.priority_patients">
-        <div class="queue-position__body__item" *ngFor="let patient of hospitalArea.priority_patients">
-            {{patient.first_name}}
-        </div>
+        <h3 class="queue-position__head__sub">Amount of People <br /> Ahead of You:</h3>
+        <h1 class="queue-position__head__number">#{{ queueNumber() -1 }}</h1>
     </div>
 </div>

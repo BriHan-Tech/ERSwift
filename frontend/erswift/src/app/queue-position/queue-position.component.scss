@@ -5,6 +5,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 
     &__head {
         position: relative;
@@ -24,15 +25,11 @@
         &__sub {
             margin-top: 20px;
             font-size: 20px;
+            margin-bottom: 5px;
         }
 
         &__number {
             font-size: 50px;
         }
-    }
-
-    &__list {
-        position: relative;
-        padding:20px;
     }
 }
