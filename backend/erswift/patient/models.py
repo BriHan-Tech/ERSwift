@@ -26,7 +26,7 @@ class PriorityPatient(models.Model):
     current_time = models.DateTimeField(auto_now=True)
 
     emer_reasoning = models.CharField(choices=PRIORITY_CHOICES, max_length=15)
-    extra_information = models.TextField()
+    extra_information = models.TextField(blank=True, null=True)
 
     hospital_area = models.ForeignKey(PriorityHospitalArea, related_name="priority_patients", on_delete=models.CASCADE)
 
@@ -63,9 +63,13 @@ class Patient(models.Model):
     
     emer_reasoning = models.CharField(choices=INJURY_SYMPTOMS, max_length=11)
     cut_location = models.CharField(choices=CUT_LOCATION, max_length=5, null=True, blank=True)
-    extra_information = models.TextField()
+    extra_information = models.TextField(blank=True, null=True)
 
     hospital_area = models.ForeignKey(HospitalArea, related_name="patients", on_delete=models.CASCADE)
+
+    def getFullName(self):
+        return "{0} {1}".format(self.first_name, self.last_name)
+
 
     def __str__(self):
         return "{0} {1}".format(self.first_name, self.last_name)
