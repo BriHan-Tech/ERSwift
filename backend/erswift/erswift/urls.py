@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# For Static and Media Files
+from django.conf import settings
+from django.conf.urls.static import static
+
 from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
 
 urlpatterns = [
@@ -24,4 +28,11 @@ urlpatterns = [
     path('api/hospital-areas/', include('hospital.urls')),
     path('auth/login/', obtain_jwt_token),
     path('auth/refresh-token/', refresh_jwt_token),
-]
+
+    path('', include('frontend.urls'))
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'frontend.views.error_404'
+handler500 = 'frontend.views.error_500'
+handler403 = 'frontend.views.error_403'
+handler400 = 'frontend.views.error_400'
