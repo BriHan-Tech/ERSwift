@@ -37,6 +37,18 @@ export class HttpGetService {
     );
   }
 
+  getPatientFromPriority(id:number): Observable<IHospitalArea[]> {
+    return this.http.get<IHospitalArea[]>(this.erswiftAPIUrl + "patients/priority_patient/" + id + "/").pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  getPatientFromNormal(id:number): Observable<IHospitalArea[]> {
+    return this.http.get<IHospitalArea[]>(this.erswiftAPIUrl + "patients/patient/" + id + "/").pipe(
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(err: HttpErrorResponse) {
     let errorMessage = "";
     if (err.error instanceof ErrorEvent) {
