@@ -18,8 +18,8 @@ export class EmergencyCheckInComponent implements OnInit {
 
   ngOnInit(): void {
     this.emergencyCheckInForm = this.fb.group({
-      first_name: ["", [Validators.required]],
-      last_name: ["", [Validators.required]],
+      first_name: ["", [Validators.required, Validators.maxLength(26)]],
+      last_name: ["", [Validators.required, Validators.maxLength(50)]],
       date_of_birth: ["", [Validators.required]],
 
       emer_reasoning: ["", [Validators.required]],
