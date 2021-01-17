@@ -36,3 +36,39 @@
         }
     }
 }
+
+@media screen and (min-width:481px) {
+    .dashboard {
+
+        &__dropdown {
+            width: 75%;
+        }
+
+        &__list {
+            &__patients-list {
+                width: 80%;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    }
+}
+
+@media screen and (min-width:770px) {
+    .dashboard {
+
+        &__dropdown {
+            width: 500px;
+        }
+
+        &__list {
+            &__patients-list {
+                width: 530px;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    }
+}
