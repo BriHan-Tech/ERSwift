@@ -1,0 +1,39 @@
+@import '../../../styles.scss';
+
+.patient-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+
+    &__title {
+        color: $color-primary;
+        padding-top: 50px;
+        font-size: 40px;
+        text-align: center;
+    }
+
+    &__dash {
+        position: relative;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50%;
+        height: 5px;
+        background-color: $color-primary;
+    }
+
+    &__body {
+        padding: 0px 40px 20px 40px;
+
+        &__section-header {
+            color: $color-primary;
+            margin-top: 30px;
+        }
+
+        span {
+            color: $color-primary;
+        }
+    }
+}

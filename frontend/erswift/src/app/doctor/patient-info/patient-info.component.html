@@ -1,1 +1,19 @@
-<p>patient-info works!</p>
+<div class="patient-info" *ngIf="patient">
+    <h1 class="patient-info__title">Patient <br /> Information</h1>
+    <div class="patient-info__dash"></div>
+    <div class="patient-info__body">
+        <h2 class="patient-info__body__section-header">Patient Profile</h2>
+        <br />
+        <h3 class="patient-info__body__field"><span>Full Name: </span><br /> {{ patient.first_name }} {{ patient.last_name }} </h3>
+        <br />
+        <h3 class="patient-info__body__field"><span>Date of Birth:</span><br />  {{ patient.date_of_birth | date}}</h3>
+        <br />
+        <h3 class="patient-info__body__field"><span>Sign Up Time:</span><br /> {{ patient.current_time | date:'medium' }}</h3>
+        <br />
+        <h2 class="patient-info__body__section-header">Cause of Visit</h2>
+        <br />
+        <h3 class="patient-info__body__field" *ngIf="patient.emer_reasoning"><span>Cause: </span><br /> {{ patient.emer_reasoning }}</h3>
+        <br />
+        <h3 class="patient-info__body__field" *ngIf="patient.extra_inforamtion"><span>Extra Information: </span><br /> {{ patient.extra_inforamtion }}</h3>
+    </div>
+</div>
