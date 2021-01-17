@@ -8,7 +8,8 @@
         
     <div class="dashboard__list" *ngFor="let area of filtered_areas">
         <div class="dashboard__list__patients-list" *ngIf="area.priority_patients">
-            <div class="dashboard__list__patients-list__patient" *ngFor="let patient of area.priority_patients">
+            <div class="dashboard__list__patients-list__patient" *ngFor="let patient of area.priority_patients"
+                [routerLink]="['/doctor/patient-info/' + patient.id, {triage: 'priority'}]">
                 <h3>Name: {{ patient.first_name }} {{ patient.last_name}}</h3>
                 <h4>Date of Birth: {{ patient.date_of_birth }}</h4>
 
@@ -17,11 +18,12 @@
         </div>
 
         <div class="dashboard__list__patients-list" *ngIf="area.patients">
-            <div class="dashboard__list__patients-list__patient" *ngFor="let patient of area.patients">
+            <div class="dashboard__list__patients-list__patient" *ngFor="let patient of area.patients"
+                [routerLink]="['/doctor/patient-info/' + patient.id, {triage: 'urgent'}]">
                 <h3>Name: {{ patient.first_name }} {{ patient.last_name}}</h3>
                 <h4>Date of Birth: {{ patient.date_of_birth }}</h4>
 
-                {{ patient.emer_reasoning }}
+                {{ patient.reasoning }}
             </div>
         </div>
 
