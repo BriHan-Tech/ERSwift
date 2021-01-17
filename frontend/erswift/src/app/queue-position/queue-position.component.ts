@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { interval, Observable } from 'rxjs';
 import { HttpGetService } from '../services/http-get.service';
 
@@ -10,7 +10,7 @@ import { HttpGetService } from '../services/http-get.service';
 })
 export class QueuePositionComponent implements OnInit {
 
-  constructor(private httpGetService: HttpGetService) { 
+  constructor(private httpGetService: HttpGetService, private router: Router) { 
     interval(3000).subscribe(x => {
       this.getQueue(this.hospital_area_id);
     })
@@ -47,6 +47,7 @@ export class QueuePositionComponent implements OnInit {
 
   queueNumber():number {
     let queueList = this.hospitalArea.priority_patients;
+    let queueInList = false;
 
     if (this.triage == 1) {
       queueList = this.hospitalArea.priority_patients;
@@ -56,8 +57,16 @@ export class QueuePositionComponent implements OnInit {
 
     for (let i=0; i < queueList.length; i ++) {
       if (this.user_id == queueList[i].id) {
+        queueInList = true;
         return i+1
       }
+    }
+
+    if (queueInList == false) {
+      localStorage.removeItem("user_id");
+      localStorage.removeItem("triage");
+      localStorage.removeItem("hospital_area");
+      this.router.navigate(['']);
     }
   }
 
