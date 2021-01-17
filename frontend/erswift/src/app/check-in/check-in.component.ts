@@ -14,7 +14,7 @@ export class CheckInComponent implements OnInit {
   checkInForm: FormGroup;
   patient: any;
 
-  private erswiftAPIUrl = "http://127.0.0.1:8000/api/patients/patient/";
+  private erswiftAPIUrl = "http://127.0.0.1:8000/api/patients/min-patient/";
 
   constructor(private fb: FormBuilder, private el: ElementRef, private http: HttpClient, private router: Router) { }
 
