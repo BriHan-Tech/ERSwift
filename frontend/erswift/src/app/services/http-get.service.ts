@@ -14,17 +14,18 @@ export class HttpGetService {
   constructor(private http: HttpClient) { }
 
   getPriorityQueue(id:number): Observable<IHospitalArea> {
-    return this.http.get<IHospitalArea>(this.erswiftAPIUrl + "hospital-areas/hospital-priority-areas/" + id + "/").pipe(
+    return this.http.get<IHospitalArea>(this.erswiftAPIUrl + "hospital-areas/min-hospital-priority-areas/" + id + "/").pipe(
       catchError(this.handleError)
     )
   }
 
   getPatientQueue(id:number): Observable<IHospitalArea> {
-    return this.http.get<IHospitalArea>(this.erswiftAPIUrl + "hospital-areas/hospital-areas/" + id + "/").pipe(
+    return this.http.get<IHospitalArea>(this.erswiftAPIUrl + "hospital-areas/min-hospital-areas/" + id + "/").pipe(
       catchError(this.handleError)
     )
   }
 
+  /* The rest need Authentication */
   getPriorityAreas(): Observable<IHospitalArea[]> {
     return this.http.get<IHospitalArea[]>(this.erswiftAPIUrl + "hospital-areas/hospital-priority-areas/").pipe(
       catchError(this.handleError)
