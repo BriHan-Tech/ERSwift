@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router, RouterEvent } from '@angular/router';
 
 @Component({
   selector: 'app-emergency-check-in',
@@ -14,7 +15,7 @@ export class EmergencyCheckInComponent implements OnInit {
 
   private erswiftAPIUrl = "http://127.0.0.1:8000/api/patients/priority_patient/";
 
-  constructor(private fb: FormBuilder, private http: HttpClient) { }
+  constructor(private fb: FormBuilder, private el: ElementRef, private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     this.emergencyCheckInForm = this.fb.group({
@@ -42,7 +43,7 @@ export class EmergencyCheckInComponent implements OnInit {
         (err) => console.log(err)
       )
     } else {
-      console.log("Not Valid")
+      this.validateAllFormFields(this.emergencyCheckInForm);
     }
   }
 
@@ -50,6 +51,43 @@ export class EmergencyCheckInComponent implements OnInit {
     localStorage.setItem("hospital_area", result.hospital_area);
     localStorage.setItem("user_id", result.id);
     localStorage.setItem("triage", "1")
+
+    this.navigateToQueue();
+
   }
 
+  navigateToQueue():void {
+    this.router.navigate(['queue-position'])
+  }
+
+    // If the form does not submit, this would inform the user on the errors on the form.
+    validateAllFormFields(formGroup: FormGroup) {
+      Object.keys(formGroup.controls).forEach(field => {
+        const control = formGroup.get(field);
+        if (control instanceof FormControl) {
+          control.markAsTouched({ onlySelf: true });
+        } else if (control instanceof FormGroup) {
+          this.validateAllFormFields(control);
+        }
+      });
+  
+      setTimeout(() => this.scrollIfFormHasErrors(formGroup).then(() => {}), 25)
+    }
+  
+  
+    scrollTo(el: Element) {
+      if(el) { 
+          el.scrollIntoView({ behavior: 'smooth', block: 'center'});
+      }
+    }
+    
+    scrollToError(): void {
+      const firstElementWithError = this.el.nativeElement.querySelector('.is-invalid');
+      this.scrollTo(firstElementWithError);
+    }
+    
+    async scrollIfFormHasErrors(form: FormGroup): Promise <any> {
+      await form.invalid;
+      this.scrollToError();
+    }  
 }
