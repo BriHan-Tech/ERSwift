@@ -16,7 +16,7 @@ ERSwift uses an automated Triage identification system to "diagnose" patients an
 
 This project was created by Brian Han and Eugene Fei.
 
-Brian Han: Program
+Brian Han: Programmer
 
 Eugene Fei: Design and Video Editing
 
