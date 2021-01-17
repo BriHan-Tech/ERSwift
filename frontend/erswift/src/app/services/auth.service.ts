@@ -17,7 +17,7 @@ import * as moment from 'moment';
 })
 export class AuthService {
 
-  private apiRoot = 'http://127.0.0.1:8000/auth/';
+  private apiRoot = 'http://66.228.41.146/auth/';
 
   constructor(private http: HttpClient) { }
 

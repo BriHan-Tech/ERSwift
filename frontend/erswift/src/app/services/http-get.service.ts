@@ -10,7 +10,7 @@ import { IPatient } from '../interfaces/ipatient';
 })
 export class HttpGetService {
 
-  private erswiftAPIUrl = "http://127.0.0.1:8000/api/";
+  private erswiftAPIUrl = "http://66.228.41.146/api/";
 
   constructor(private http: HttpClient) { }
 

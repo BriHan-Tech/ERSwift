@@ -11,7 +11,7 @@ import { HttpGetService } from 'src/app/services/http-get.service';
 })
 export class PatientInfoComponent implements OnInit {
 
-  private erswiftAPIUrl = "http://127.0.0.1:8000/api/";
+  private erswiftAPIUrl = "http://66.228.41.146/api/";
 
   triage: string;
   patient: any;
