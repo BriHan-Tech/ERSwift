@@ -12,6 +12,6 @@ def error_400(request, exception):
     data = {}
     return redirect("/#/400")
 
-def error_403(request):
+def error_403(request, exception):
     data = {}
     return redirect("/#/403")

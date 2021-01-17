@@ -30,7 +30,9 @@ urlpatterns = [
     path('auth/refresh-token/', refresh_jwt_token),
 
     path('', include('frontend.urls'))
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
 handler404 = 'frontend.views.error_404'
 handler500 = 'frontend.views.error_500'
