@@ -7,23 +7,46 @@
             <label class="check-in__form__section__label">First Name:</label>
             <input class="check-in__form__section__field"
                    type="text"
-                   formControlName="first_name">
+                   formControlName="first_name"
+                   [ngClass]="{'is-invalid': (checkInForm.get('first_name').touched ||
+                                              checkInForm.get('first_name').dirty) && !checkInForm.get('first_name').valid}">
+            <span class="is-invalid" *ngIf="checkInForm.get('first_name').errors?.required && checkInForm.get('first_name').touched">
+                *This Field is Required.
+            </span>
+            <span class="is-invalid" *ngIf="checkInForm.get('first_name').errors?.maxlength && checkInForm.get('first_name').touched">
+                *Your First Name Can Not Be Longer Than 26 Characters.
+            </span>
         </div>
         <div class="check-in__form__section">
             <label class="check-in__form__section__label">Last Name:</label>
             <input class="check-in__form__section__field"
                    type="text"
-                   formControlName="last_name">
+                   formControlName="last_name"
+                   [ngClass]="{'is-invalid': (checkInForm.get('last_name').touched ||
+                                              checkInForm.get('last_name').dirty) && !checkInForm.get('last_name').valid}">
+            <span class="is-invalid" *ngIf="checkInForm.get('last_name').errors?.required && checkInForm.get('last_name').touched">
+                *This Field is Required.
+            </span>
+            <span class="is-invalid" *ngIf="checkInForm.get('last_name').errors?.maxlength && checkInForm.get('last_name').touched">
+                *Your Last Name Can Not Be Longer Than 26 Characters.
+            </span>
         </div>
         <div class="check-in__form__section">
             <label class="check-in__form__section__label">Date of Birth</label>
             <input class="check-in__form__section__field"
                    type="date"
-                   formControlName="date_of_birth">
+                   formControlName="date_of_birth"
+                   [ngClass]="{'is-invalid': (checkInForm.get('date_of_birth').touched ||
+                                              checkInForm.get('date_of_birth').dirty) && !checkInForm.get('date_of_birth').valid}">
+            <span class="is-invalid" *ngIf="checkInForm.get('date_of_birth').errors?.required && checkInForm.get('date_of_birth').touched">
+                *This Field is Required.
+            </span>
         </div>
         <div class="check-in__form__section">
             <label class="check-in__form__section__label">Injury/Symptoms:</label>
-            <select class="check-in__form__section__field" formControlName="reasoning">
+            <select class="check-in__form__section__field" formControlName="reasoning"
+                    [ngClass]="{'is-invalid': (checkInForm.get('reasoning').touched ||
+                                               checkInForm.get('reasoning').dirty) && !checkInForm.get('reasoning').valid}">
                 <option value="sick">Sick</option>
                 <option value="temperature">Temperature</option>
                 <option value="cut">Cut</option>
@@ -32,22 +55,30 @@
                 <option value="burns">Burns</option>
                 <option value="other">Other</option>
             </select>
+            <span class="is-invalid" *ngIf="checkInForm.get('reasoning').errors?.required && checkInForm.get('reasoning').touched">
+                *This Field is Required.
+            </span>
         </div>
         <div class="check-in__form__section" *ngIf="checkInForm.get('reasoning').value == 'cut'">
             <label class="check-in__form__section__label">Location:</label>
-            <select class="check-in__form__section__field" formControlName="cut_location">
+            <select class="check-in__form__section__field" formControlName="cut_location"
+                    [ngClass]="{'is-invalid': (checkInForm.get('cut_location').touched ||
+                                               checkInForm.get('cut_location').dirty) && !checkInForm.get('cut_location').valid}">
                 <option value="head">Head</option>
                 <option value="neck">Neck</option>
                 <option value="torso">Torso</option>
                 <option value="arms">Arms</option>
                 <option value="legs">Legs</option>
             </select>
+            <span class="is-invalid" *ngIf="checkInForm.get('cut_location').errors?.required && checkInForm.get('cut_location').touched">
+                *This Field is Required.
+            </span>
         </div>
         <div class="check-in__form__section">
             <label class="check-in__form__section__label">Additional Information:</label>
-            <input class="check-in__form__section__field"
+            <textarea class="check-in__form__section__field textarea"
                    type="text"
-                   formControlName="extra_information">
+                   formControlName="extra_information"></textarea>
         </div>
 
         <div class="check-in__form__submit-button">
