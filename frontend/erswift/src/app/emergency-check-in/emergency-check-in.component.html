@@ -7,23 +7,46 @@
             <label class="emergency-check-in__form__section__label">First Name:</label>
             <input class="emergency-check-in__form__section__field"
                    type="text"
-                   formControlName="first_name">
+                   formControlName="first_name"
+                   [ngClass]="{'is-invalid': (emergencyCheckInForm.get('first_name').touched ||
+                                              emergencyCheckInForm.get('first_name').dirty) && !emergencyCheckInForm.get('first_name').valid}">
+            <span class="is-invalid" *ngIf="emergencyCheckInForm.get('first_name').errors?.required && emergencyCheckInForm.get('first_name').touched">
+                *This Field is Required.
+            </span>
+            <span class="is-invalid" *ngIf="emergencyCheckInForm.get('first_name').errors?.maxlength && emergencyCheckInForm.get('first_name').touched">
+                *Your First Name Can Not Be Longer Than 26 Characters.
+            </span>
         </div>
         <div class="emergency-check-in__form__section">
             <label class="emergency-check-in__form__section__label">Last Name:</label>
             <input class="emergency-check-in__form__section__field"
                    type="text"
-                   formControlName="last_name">
+                   formControlName="last_name"
+                   [ngClass]="{'is-invalid': (emergencyCheckInForm.get('last_name').touched ||
+                                              emergencyCheckInForm.get('last_name').dirty) && !emergencyCheckInForm.get('last_name').valid}">
+            <span class="is-invalid" *ngIf="emergencyCheckInForm.get('last_name').errors?.required && emergencyCheckInForm.get('last_name').touched">
+                *This Field is Required.
+            </span>
+            <span class="is-invalid" *ngIf="emergencyCheckInForm.get('last_name').errors?.maxlength && emergencyCheckInForm.get('last_name').touched">
+                *Your Last Name Can Not Be Longer Than 50 Characters.
+            </span>
         </div>
         <div class="emergency-check-in__form__section">
             <label class="emergency-check-in__form__section__label">Date of Birth</label>
             <input class="emergency-check-in__form__section__field"
                    type="date"
-                   formControlName="date_of_birth">
+                   formControlName="date_of_birth"
+                   [ngClass]="{'is-invalid': (emergencyCheckInForm.get('date_of_birth').touched ||
+                                              emergencyCheckInForm.get('date_of_birth').dirty) && !emergencyCheckInForm.get('date_of_birth').valid}">
+            <span class="is-invalid" *ngIf="emergencyCheckInForm.get('date_of_birth').errors?.required && emergencyCheckInForm.get('date_of_birth').touched">
+                *This Field is Required.
+            </span>
         </div>
         <div class="emergency-check-in__form__section">
             <label class="emergency-check-in__form__section__label">Injury/Symptoms:</label>
-            <select class="emergency-check-in__form__section__field" formControlName="emer_reasoning">
+            <select class="emergency-check-in__form__section__field" formControlName="emer_reasoning"
+                    [ngClass]="{'is-invalid': (emergencyCheckInForm.get('emer_reasoning').touched ||
+                                               emergencyCheckInForm.get('emer_reasoning').dirty) && !emergencyCheckInForm.get('emer_reasoning').valid}">
                 <option value="breathing">Breathing</option>
                 <option value="fatal-wounds">Fatal Wounds</option>
                 <option value="coma">Coma</option>
@@ -31,12 +54,15 @@
                 <option value="dehydration">Severe Signs of Dehydration</option>
                 <option value="other">Other</option>
             </select>
+            <span class="is-invalid" *ngIf="emergencyCheckInForm.get('emer_reasoning').errors?.required && emergencyCheckInForm.get('emer_reasoning').touched">
+                *This Field is Required.
+            </span>
         </div>
         <div class="emergency-check-in__form__section">
             <label class="emergency-check-in__form__section__label">Additional Information:</label>
-            <input class="emergency-check-in__form__section__field"
+            <textarea class="emergency-check-in__form__section__field textarea"
                    type="text"
-                   formControlName="extra_information">
+                   formControlName="extra_information"></textarea>
         </div>
 
         <div class="emergency-check-in__form__submit-button">
