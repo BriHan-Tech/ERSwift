@@ -14,6 +14,8 @@ import { QueuePositionComponent } from './queue-position/queue-position.componen
 import { CheckInComponent } from './check-in/check-in.component';
 import { BackButtonShellComponent } from './back-button-shell/back-button-shell.component';
 import { AuthGuard, AuthInterceptor, AuthService } from './services/auth.service';
+import { NotFoundComponent } from './error-pages/not-found/not-found.component';
+import { ServerErrorComponent } from './error-pages/server-error/server-error.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { AuthGuard, AuthInterceptor, AuthService } from './services/auth.service
     EmergencyCheckInComponent,
     QueuePositionComponent,
     CheckInComponent,
-    BackButtonShellComponent
+    BackButtonShellComponent,
+    NotFoundComponent,
+    ServerErrorComponent
   ],
   imports: [
     BrowserModule,
