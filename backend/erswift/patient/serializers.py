@@ -12,3 +12,4 @@ class PriorityPatientSerializer(serializers.ModelSerializer):
     class Meta:
         model = PriorityPatient
         fields = "__all__"
+
