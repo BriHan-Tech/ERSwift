@@ -34,6 +34,8 @@
                 font-size: 15px;
                 border: 1px solid black;
                 background-color: white;
+
+                @include no-select-input();
             }
 
             .textarea {
