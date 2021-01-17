@@ -13,7 +13,11 @@
         <h2 class="patient-info__body__section-header">Cause of Visit</h2>
         <br />
         <h3 class="patient-info__body__field" *ngIf="patient.emer_reasoning"><span>Cause: </span><br /> {{ patient.emer_reasoning }}</h3>
+        <h3 class="patient-info__body__field" *ngIf="patient.reasoning"><span>Cause: </span><br /> {{ patient.reasoning }}</h3>
         <br />
         <h3 class="patient-info__body__field" *ngIf="patient.extra_inforamtion"><span>Extra Information: </span><br /> {{ patient.extra_inforamtion }}</h3>
+    </div>
+    <div class="patient-info__center">
+        <div class="patient-info__center__dismiss-button btn btn--blue" (click)="delete()">Dismiss</div>
     </div>
 </div>
