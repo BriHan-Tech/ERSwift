@@ -1,0 +1,22 @@
+@import "../../styles.scss";
+
+.back-button {
+    background-color: $color-primary;
+    height: 50px;
+    width: 50px;
+
+    position: relative;
+    top: 20px;
+    left: 20px;
+    border-radius: 50px;
+
+    h1 {
+        text-decoration: none;
+        display: inline-block;
+        padding: 0px 15px;
+        position: relative;
+        top: -8px;
+        font-size: 50px;
+        color: white;
+    }
+}
