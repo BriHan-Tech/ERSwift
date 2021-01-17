@@ -1,5 +1,7 @@
 # ERSwift
 
+You can try out this project at: http://www.erswift.com/#/
+
 Our team of 2 has had some bad experiences with emergency room wait times. One of us broke our arm and had to wait over 4 hours, the other waited 2 hours to get stitches above the eye. We decided to make ERSwift to ensure that nobody else had to go through the anxiety and pain we did. 
 
 This application is also inspired by the alarming amount of COVID-19 cases in hospitals. These cases have made hospitals clogged and inefficient.
@@ -20,14 +22,13 @@ Eugene Fei: Design and Video Editing
 
 We hope that we can implement more complex features into the app, including photo submissions, machine-learning algorithms to determine severity/diagnosis, etc. We also hope to work with a hospital or medical professional to better understand the flow of hospitals, and work together to create a fully automated system.
 
-## Technologies
 
-You can try out this project at: http://www.erswift.com/#/
+## Technologies
 
 Technologies Used: Angular, Django, DjangoRestFramework, Apache2, SQLite
 
 Languages Used: Python, TypeScript
 
-For the Cloud Service: Linode
+Cloud Service: Linode
 
-For the Domain Name: Domain.com
+Domain Name: Domain.com
