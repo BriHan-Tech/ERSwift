@@ -6,6 +6,9 @@ Our team of 2 has had some bad experiences with emergency room wait times. One o
 
 This application is also inspired by the alarming amount of COVID-19 cases in hospitals. These cases have made hospitals clogged and inefficient.
 
+
+## What does it do?
+
 ERSwift uses an automated Triage identification system to "diagnose" patients and direct them towards different sections of the hospital. Patients are put in a queue, allowing them to not need to wait at the hospital. This app also allows doctors to see where patients are in the hospital, and where resources are needed.
 
 
