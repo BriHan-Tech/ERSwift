@@ -3,7 +3,7 @@
 .queue-position {
     width: 100%;
     position: relative;
-    top: 10%;
+    top: 15%;
 
     &__head {
         position: relative;
@@ -20,7 +20,7 @@
         }
         
         &__sub {
-            margin-top: 20px;
+            margin-top: 30px;
             font-size: 20px;
             margin-bottom: 5px;
         }
@@ -28,5 +28,11 @@
         &__number {
             font-size: 50px;
         }
+    }
+}
+
+@media screen and (min-width:481px) {
+    .queue-position {
+        top: 20%;
     }
 }
