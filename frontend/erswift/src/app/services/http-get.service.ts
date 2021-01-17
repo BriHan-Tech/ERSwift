@@ -25,6 +25,18 @@ export class HttpGetService {
     )
   }
 
+  getPriorityAreas(): Observable<IHospitalArea[]> {
+    return this.http.get<IHospitalArea[]>(this.erswiftAPIUrl + "hospital-areas/hospital-priority-areas/").pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  getHospitalAreas(): Observable<IHospitalArea[]> {
+    return this.http.get<IHospitalArea[]>(this.erswiftAPIUrl + "hospital-areas/hospital-areas/").pipe(
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(err: HttpErrorResponse) {
     let errorMessage = "";
     if (err.error instanceof ErrorEvent) {
