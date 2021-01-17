@@ -16,6 +16,8 @@ import { BackButtonShellComponent } from './back-button-shell/back-button-shell.
 import { AuthGuard, AuthInterceptor, AuthService } from './services/auth.service';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { ServerErrorComponent } from './error-pages/server-error/server-error.component';
+import { BadRequestComponent } from './error-pages/bad-request/bad-request.component';
+import { ForbiddenComponent } from './error-pages/forbidden/forbidden.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ServerErrorComponent } from './error-pages/server-error/server-error.co
     CheckInComponent,
     BackButtonShellComponent,
     NotFoundComponent,
-    ServerErrorComponent
+    ServerErrorComponent,
+    BadRequestComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,
