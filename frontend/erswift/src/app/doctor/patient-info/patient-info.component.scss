@@ -20,13 +20,16 @@
         margin-bottom: 10px;
         left: 50%;
         transform: translateX(-50%);
-        width: 50%;
+        width: 300px;
         height: 5px;
         background-color: $color-primary;
     }
 
     &__body {
-        padding: 0px 40px 20px 40px;
+        width: 300px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
 
         &__section-header {
             color: $color-primary;
@@ -43,7 +46,8 @@
         justify-content: center;
 
         &__dismiss-button {
-            width: 50%;
+            margin-top: 20px;
+            width: 300px;
             padding: 10px;
             text-align: center;
         }
