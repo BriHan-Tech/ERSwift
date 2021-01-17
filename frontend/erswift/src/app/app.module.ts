@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -13,6 +13,7 @@ import { EmergencyCheckInComponent } from './emergency-check-in/emergency-check-
 import { QueuePositionComponent } from './queue-position/queue-position.component';
 import { CheckInComponent } from './check-in/check-in.component';
 import { BackButtonShellComponent } from './back-button-shell/back-button-shell.component';
+import { AuthGuard, AuthInterceptor, AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,15 @@ import { BackButtonShellComponent } from './back-button-shell/back-button-shell.
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
